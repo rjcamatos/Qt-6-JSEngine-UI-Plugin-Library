@@ -13,4 +13,6 @@ public:
     ~jseplugins_qicon();
 };
 
+Q_DECLARE_METATYPE(jseplugins_qicon*);
+
 #endif // JSEPLUGINS_QICON_H

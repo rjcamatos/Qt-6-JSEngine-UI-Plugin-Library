@@ -3,6 +3,7 @@
 jseplugins::jseplugins()
 {
     qDebug() << Q_FUNC_INFO;
+    registerMetaTypesConverter();
     QJSEngine *engine = new QJSEngine();
     this->_jsengine = engine;
     engine->installExtensions(QJSEngine::AllExtensions);
