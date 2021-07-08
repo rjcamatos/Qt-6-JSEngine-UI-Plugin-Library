@@ -72,15 +72,10 @@ jseplugins_qtablewidgetitem* jseplugins_qtablewidget::takeVerticalHeaderItem(int
     return (jseplugins_qtablewidgetitem*)QTableWidget::takeVerticalHeaderItem(row);
 }
 
-QList<jseplugins_qtablewidgetitem*> jseplugins_qtablewidget::selectedItems() const {
+QList<jseplugins_qtablewidgetitem*> jseplugins_qtablewidget::selectedItems() {
     QList<jseplugins_qtablewidgetitem*> newList;
-    foreach(auto *item, QTableWidget::selectedItems() ){
-        if( (jseplugins_qtablewidgetitem*)item ) {
-            newList.append((jseplugins_qtablewidgetitem*)item);
-        } else {
-            jseplugins_qtablewidgetitem* newItem = new jseplugins_qtablewidgetitem();
-            newList.append(newItem);
-        }
+    foreach(auto item, QTableWidget::selectedItems() ) {
+        newList.append((jseplugins_qtablewidgetitem*)item);
     }
     return newList;
 }

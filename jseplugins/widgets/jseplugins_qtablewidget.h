@@ -22,7 +22,7 @@ public:
     Q_INVOKABLE jseplugins_qtablewidgetitem* takeHorizontalHeaderItem(int column);
     Q_INVOKABLE jseplugins_qtablewidgetitem* takeItem(int row, int column);
     Q_INVOKABLE jseplugins_qtablewidgetitem* takeVerticalHeaderItem(int row);
-    Q_INVOKABLE QList<jseplugins_qtablewidgetitem*> selectedItems() const;
+    Q_INVOKABLE QList<jseplugins_qtablewidgetitem*> selectedItems();
     ~jseplugins_qtablewidget();
 
 protected slots:
