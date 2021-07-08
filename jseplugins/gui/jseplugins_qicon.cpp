@@ -1,5 +1,5 @@
 #include "jseplugins_qicon.h"
-
+#include <QDebug>
 jseplugins_qicon::jseplugins_qicon()
 {
 }

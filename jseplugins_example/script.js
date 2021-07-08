@@ -116,6 +116,7 @@ function createPanelWidget()
         layout.addWidget(dialogButtonBox);
 
         var icon0 = new QIcon();
+
         icon0.addFile(pluginPath + "/images/0.png",(new QSize(10,10)).getReference());
         var comboBox0 = new QComboBox();
         comboBox0.addItem(icon0.getReference(),"TESTE 1",function() {console.log("item0 click")});
@@ -234,16 +235,23 @@ function createPanelWidget()
 
         var listWidgetIcon0 = new QIcon();
         listWidgetIcon0.addFile(pluginPath + "/images/0.png", (new QSize(20,20)).getReference());
+        var listWidgetItem0 = new QListWidgetItem(listWidgetIcon0.getReference(),"width icon 0");
+
         var listWidgetIcon1 = new QIcon();
         listWidgetIcon1.addFile(pluginPath + "/images/56.png", (new QSize(20,20)).getReference());
-        var listWidgetItem0 = new QListWidgetItem(listWidgetIcon0.getReference(),"width icon 0");
         var listWidgetItem1 = new QListWidgetItem(listWidgetIcon1.getReference(),"width icon 1");
+
         var listWidget = new QListWidget();
         listWidget.addItem("teste 1");
         listWidget.addItem("teste 2");
         listWidget.addItem("teste 3");
         listWidget.addItem(listWidgetItem0);
         listWidget.addItem(listWidgetItem1);
+        var lw0 = listWidget.takeItem(0);
+        var lw1 = listWidget.takeItem(3);
+        listWidget.insertItem(3,lw0);
+        listWidget.insertItem(0,lw1)
+        listWidget.insertItem(5,"HELLO");
         layout.addWidget(listWidget);
 
 
@@ -255,7 +263,10 @@ function createPanelWidget()
         tableWidget.setHorizontalHeaderItem(1,header1);
         tableWidget.setHorizontalHeaderItem(2,header2);
 
-
+        tableWidget.itemSelectionChanged.connect(this,function(){
+            var items = tableWidget.selectedItems();
+            console.log(items);
+        });
 
         tableWidget.cellDoubleClicked.connect(this,function(row,column){
              if(column === 0 ) {
@@ -269,6 +280,7 @@ function createPanelWidget()
                 icon.addFile(pluginPath + "/images/" + files[n], (new QSize(20,20)).getReference());
                 selected[n] = Object();
                 selected[n].icon = icon.getReference();
+                console.log("ICON IS " + icon);
                 selected[n].name = files[n]
                 comboBox.addItem(selected[n].icon,selected[n].name,function() { console.log("selected file " + files[n])})
                 }

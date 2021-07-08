@@ -45,6 +45,42 @@ void jseplugins_qtablewidget::_onCellDoubleClicked(int row, int column) {
     if( ! ((jseplugins_qtablewidgetitem*)QTableWidget::item(row,column)) ) {
         jseplugins_qtablewidgetitem* item = new jseplugins_qtablewidgetitem();
         item->setParent(this);
+        this->blockSignals(true);
         QTableWidget::setItem(row,column,item);
+        this->blockSignals(false);
     }
+}
+
+jseplugins_qtablewidgetitem* jseplugins_qtablewidget::takeHorizontalHeaderItem(int column) {
+    if( ! (jseplugins_qtablewidgetitem*)QTableWidget::takeHorizontalHeaderItem(column) ) {
+        return nullptr;
+    }
+    return (jseplugins_qtablewidgetitem*)QTableWidget::takeHorizontalHeaderItem(column);
+}
+
+jseplugins_qtablewidgetitem* jseplugins_qtablewidget::takeItem(int row, int column) {
+    if( ! (jseplugins_qtablewidgetitem*)QTableWidget::takeItem(row,column) ) {
+        return nullptr;
+    }
+    return (jseplugins_qtablewidgetitem*)QTableWidget::takeItem(row,column);
+}
+
+jseplugins_qtablewidgetitem* jseplugins_qtablewidget::takeVerticalHeaderItem(int row) {
+    if( ! (jseplugins_qtablewidgetitem*)QTableWidget::takeVerticalHeaderItem(row) ) {
+        return nullptr;
+    }
+    return (jseplugins_qtablewidgetitem*)QTableWidget::takeVerticalHeaderItem(row);
+}
+
+QList<jseplugins_qtablewidgetitem*> jseplugins_qtablewidget::selectedItems() const {
+    QList<jseplugins_qtablewidgetitem*> newList;
+    foreach(auto *item, QTableWidget::selectedItems() ){
+        if( (jseplugins_qtablewidgetitem*)item ) {
+            newList.append((jseplugins_qtablewidgetitem*)item);
+        } else {
+            jseplugins_qtablewidgetitem* newItem = new jseplugins_qtablewidgetitem();
+            newList.append(newItem);
+        }
+    }
+    return newList;
 }

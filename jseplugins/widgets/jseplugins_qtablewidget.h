@@ -1,9 +1,10 @@
 #ifndef JSEPLUGINS_QTABLEWIDGET_H
 #define JSEPLUGINS_QTABLEWIDGET_H
 
+#include "jseplugins_qtablewidgetitem.h"
 #include <QObject>
 #include <QTableWidget>
-#include "jseplugins_qtablewidgetitem.h"
+#include <QList>
 
 class jseplugins_qtablewidget : public QTableWidget
 {
@@ -18,6 +19,10 @@ public:
     Q_INVOKABLE void setVerticalHeaderItem(int row, jseplugins_qtablewidgetitem *item);
     Q_INVOKABLE jseplugins_qtablewidgetitem* item(int row, int column);
     Q_INVOKABLE QWidget *cellWidget(int row, int column) const;
+    Q_INVOKABLE jseplugins_qtablewidgetitem* takeHorizontalHeaderItem(int column);
+    Q_INVOKABLE jseplugins_qtablewidgetitem* takeItem(int row, int column);
+    Q_INVOKABLE jseplugins_qtablewidgetitem* takeVerticalHeaderItem(int row);
+    Q_INVOKABLE QList<jseplugins_qtablewidgetitem*> selectedItems() const;
     ~jseplugins_qtablewidget();
 
 protected slots:
