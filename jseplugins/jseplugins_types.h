@@ -52,6 +52,7 @@
 #include "widgets/jseplugins_qvboxlayout.h"
 #include "widgets/jseplugins_qgridlayout.h"
 #include "widgets/jseplugins_qhboxlayout.h"
+#include "widgets/jseplugins_qformlayout.h"
 
 //GUI
 #include "gui/jseplugins_qicon.h"
@@ -98,6 +99,7 @@ static inline void registerQMetaTypes() {
         qRegisterMetaType<jseplugins_qvboxlayout*>("QVBoxLayout");
         qRegisterMetaType<jseplugins_qhboxlayout*>("QHBoxLayout");
         qRegisterMetaType<jseplugins_qgridlayout*>("QGridLayout");
+        qRegisterMetaType<jseplugins_qformlayout*>("QFormLayout");
 
         entry = true;
     }
@@ -216,6 +218,9 @@ static inline void registerJSEngineMetaTypes(QJSEngine *engine) {
 
     sv = engine->newQMetaObject(&jseplugins_qgridlayout::staticMetaObject);
     engine->globalObject().setProperty("QGridLayout",sv);
+
+    sv = engine->newQMetaObject(&jseplugins_qformlayout::staticMetaObject);
+    engine->globalObject().setProperty("QFormLayout",sv);
 
 //widgets display
     sv = engine->newQMetaObject(&jseplugins_qlcdnumber::staticMetaObject);

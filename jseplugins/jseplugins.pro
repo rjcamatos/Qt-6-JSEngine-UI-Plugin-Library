@@ -27,6 +27,7 @@ SOURCES += \
     widgets/jseplugins_qdialogbuttonbox.cpp \
     widgets/jseplugins_qdoublespinbox.cpp \
     widgets/jseplugins_qfontcombobox.cpp \
+    widgets/jseplugins_qformlayout.cpp \
     widgets/jseplugins_qgridlayout.cpp \
     widgets/jseplugins_qhboxlayout.cpp \
     widgets/jseplugins_qlabel.cpp \
@@ -71,6 +72,7 @@ HEADERS += \
     widgets/jseplugins_qdialogbuttonbox.h \
     widgets/jseplugins_qdoublespinbox.h \
     widgets/jseplugins_qfontcombobox.h \
+    widgets/jseplugins_qformlayout.h \
     widgets/jseplugins_qgridlayout.h \
     widgets/jseplugins_qhboxlayout.h \
     widgets/jseplugins_qlabel.h \

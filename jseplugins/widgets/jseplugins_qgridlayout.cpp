@@ -12,3 +12,6 @@ void jseplugins_qgridlayout::addWidget(QWidget *widget, int row, int column, Qt:
     QGridLayout::addWidget(widget,row,column,alignment);
 }
 
+void jseplugins_qgridlayout::removeWidget(QWidget *widget) {
+    QGridLayout::removeWidget(widget);
+}

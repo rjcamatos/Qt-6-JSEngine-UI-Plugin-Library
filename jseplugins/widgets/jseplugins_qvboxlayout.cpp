@@ -10,4 +10,7 @@ void jseplugins_qvboxlayout::addWidget(QWidget *widget) {
     QVBoxLayout::addWidget(widget);
 }
 
+void jseplugins_qvboxlayout::removeWidget(QWidget *widget) {
+    QVBoxLayout::removeWidget(widget);
+}
 
