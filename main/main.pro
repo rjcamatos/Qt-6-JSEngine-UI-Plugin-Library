@@ -1,7 +1,9 @@
 QT       += gui core widgets uitools qml
 
+CONFIG += console
 CONFIG += c++11
 CONFIG += qtc_runnable
+
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.

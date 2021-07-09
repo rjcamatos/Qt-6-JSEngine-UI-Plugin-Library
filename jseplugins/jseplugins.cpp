@@ -4,11 +4,35 @@ jseplugins::jseplugins()
 {
     qDebug() << Q_FUNC_INFO;
     registerMetaTypesConverter();
-    QJSEngine *engine = new QJSEngine();
-    this->_jsengine = engine;
-    engine->installExtensions(QJSEngine::AllExtensions);
-    registerJSEngineMetaTypes(engine);
+    _jsengine = new QJSEngine();
+    _jsengine->installExtensions(QJSEngine::AllExtensions);
+    registerJSEngineMetaTypes(_jsengine);
 }
+
+void jsepluginsMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg) {
+    QByteArray localMsg = msg.toLocal8Bit();
+    const char *file = context.file ? context.file : "";
+    const char *function = context.function ? context.function : "";
+    switch (type) {
+    case QtDebugMsg:
+        fprintf(stdout, "Debug: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        break;
+    case QtInfoMsg:
+        fprintf(stdout, "Info: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        break;
+    case QtWarningMsg:
+        fprintf(stdout, "Warning: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        break;
+    case QtCriticalMsg:
+        fprintf(stdout, "Critical: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        break;
+    case QtFatalMsg:
+        fprintf(stdout, "Fatal: %s (%s:%u, %s)\n", localMsg.constData(), file, context.line, function);
+        break;
+    }
+    fflush(stdout);
+}
+
 
 void jseplugins::evaluate(QWidget *widget, QString scriptPath) {
     qDebug() << Q_FUNC_INFO << " Layout:" << widget->layout();

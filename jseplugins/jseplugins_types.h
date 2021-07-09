@@ -107,9 +107,12 @@ static inline void registerQMetaTypes() {
 }
 
 static inline void registerMetaTypesConverter() {
-    qRegisterMetaType<jseplugins_qicon*>("QIcon");
+
+    //qRegisterMetaType<jseplugins_qicon*>("QIcon");
+
     QMetaType::registerConverter<jseplugins_qicon*,QIcon>(
         [] (jseplugins_qicon* qObjPtr) {
+            qDebug() << "CONVERTER";
             qDebug() << "CATCH TYPE CONVERTER";
             QIcon *dataPtr = (QIcon*)qObjPtr;
             return (dataPtr == nullptr) ? QIcon() : QIcon( *dataPtr );

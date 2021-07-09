@@ -13,9 +13,12 @@ class jseplugins : public QObject
 public:
     jseplugins();
     void evaluate(QWidget *widget, QString scriptPath);
-
+    static void installMessageHandler();
 private:
     QJSEngine *_jsengine;
+
 };
+
+void jsepluginsMessageHandler(QtMsgType type, const QMessageLogContext &context, const QString &msg);
 
 #endif // JSENGINE_H
