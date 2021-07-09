@@ -12,7 +12,7 @@ class jseplugins : public QObject
 {
 public:
     jseplugins();
-    void evaluate(QMainWindow *ui, QString scriptPath);
+    void evaluate(QWidget *widget, QString scriptPath);
 
 private:
     QJSEngine *_jsengine;

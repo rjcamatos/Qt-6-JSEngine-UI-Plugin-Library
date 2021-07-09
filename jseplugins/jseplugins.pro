@@ -10,6 +10,7 @@ TEMPLATE = lib
 QT +=  gui core widgets uitools qml
 
 SOURCES += \
+    core/jseplugins_qsettings.cpp \
     core/jseplugins_qsize.cpp \
     gui/jseplugins_qicon.cpp \
     jseplugins.cpp \
@@ -54,6 +55,7 @@ SOURCES += \
 
 
 HEADERS += \
+    core/jseplugins_qsettings.h \
     core/jseplugins_qsize.h \
     core/jseplugins_qtimerevent.h \
     gui/jseplugins_qicon.h \
