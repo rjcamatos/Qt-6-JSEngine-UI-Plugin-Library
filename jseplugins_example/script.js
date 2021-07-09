@@ -219,7 +219,7 @@ function createPanelWidget()
         dial.maximum = 100;
         dial.singleStep = 1;
         dial.valueChanged.connect(this,function(value) {
-            console.log("dial dateTimeChanged " + value);
+            console.log("dial valueChanged " + value);
             ldcnumber.intValue = value
             progressBar.value = value;
         })

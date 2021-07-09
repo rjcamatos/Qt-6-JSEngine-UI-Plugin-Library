@@ -7,9 +7,10 @@
 class jseplugins_qsize : public QObject, public QSize
 {
     Q_OBJECT
+    Q_PROPERTY(QSize ref READ getReference);
 public:
     Q_INVOKABLE jseplugins_qsize(int width, int height);
-    Q_INVOKABLE QSize getReference();
+    QSize getReference();
 };
 
 #endif // JSEPLUGINS_QSIZE_H

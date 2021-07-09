@@ -1,5 +1,8 @@
-QT +=  gui core qml widgets uitools
-CONFIG += c++11 app_bundle
+QT += gui core qml widgets uitools
+CONFIG += console
+CONFIG += c++11
+CONFIG += app_bundle
+
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
