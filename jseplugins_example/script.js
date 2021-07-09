@@ -41,7 +41,22 @@ function createPanelWidget()
         uiPanel.txtOffsetZ.setValue("30");
         uiPanel.lblOffsets.setText("offsets:");
 
+        var settings = new QSettings(pluginPath + "/config.ini",QSettings.IniFormat);
 
+        settings.beginGroup("General1")
+        var title1 = settings.value("title");
+        settings.endGroup();
+        console.log("QSettings value of title is: " + title1);
+
+        settings.beginGroup("General2")
+        var title2 = settings.value("title");
+        settings.endGroup();
+        console.log("QSettings value of title is: " + title2);
+
+        settings.beginGroup("A_TEST_GROUP");
+        settings.setValue("settings",(new QSize(100,100)).getReference());
+        settings.endGroup();
+        settings.sync();
 
         var layout = new QGridLayout();
         layout.addWidget(new QWidget(),0,0);
@@ -262,10 +277,11 @@ function createPanelWidget()
         tableWidget.setHorizontalHeaderItem(0,header0);
         tableWidget.setHorizontalHeaderItem(1,header1);
         tableWidget.setHorizontalHeaderItem(2,header2);
-
         tableWidget.itemSelectionChanged.connect(this,function(){
             var items = tableWidget.selectedItems();
-            console.log(items);
+            for (var index in items){
+                console.log(items[index] + " ROW="+ tableWidget.row(items[index]) + " COLUMN=" + tableWidget.column(items[index]) );
+            }
         });
 
         tableWidget.cellDoubleClicked.connect(this,function(row,column){

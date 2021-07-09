@@ -10,12 +10,11 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     MainWindow w;
     QVBoxLayout *layout = new QVBoxLayout();
-   w.centralWidget()->setLayout(layout);
+    w.centralWidget()->setLayout(layout);
 
     jseplugins* plugins = new jseplugins();
 
-    plugins->evaluate(&w,QDir::currentPath()+"/jseplugins/script.js");
-    plugins->evaluate(&w,QDir::currentPath()+"/jseplugins/script.js");
+    plugins->evaluate(w.centralWidget(),QDir::currentPath()+"/jseplugins/script.js");
     qDebug() << QDir::currentPath();
 
     w.show();
