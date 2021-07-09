@@ -12,6 +12,7 @@ class jseplugins_qhboxlayout : public QHBoxLayout
 public:
     Q_INVOKABLE jseplugins_qhboxlayout(QWidget *parent = nullptr);
     Q_INVOKABLE void addWidget(QWidget *widget);
+    Q_INVOKABLE void removeWidget(QWidget *widget);
     ~jseplugins_qhboxlayout();
 };
 

@@ -79,3 +79,11 @@ QList<jseplugins_qtablewidgetitem*> jseplugins_qtablewidget::selectedItems() {
     }
     return newList;
 }
+
+int jseplugins_qtablewidget::row(const jseplugins_qtablewidgetitem *item) const {
+    return QTableWidget::row(item);
+}
+
+int jseplugins_qtablewidget::column(const jseplugins_qtablewidgetitem *item) const {
+    return QTableWidget::column(item);
+}

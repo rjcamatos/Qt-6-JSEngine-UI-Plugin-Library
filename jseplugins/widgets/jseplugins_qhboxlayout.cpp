@@ -8,4 +8,7 @@ void jseplugins_qhboxlayout::addWidget(QWidget *widget) {
     QHBoxLayout::addWidget(widget);
 }
 
+void jseplugins_qhboxlayout::removeWidget(QWidget *widget) {
+    QBoxLayout::removeWidget(widget);
+}
 
