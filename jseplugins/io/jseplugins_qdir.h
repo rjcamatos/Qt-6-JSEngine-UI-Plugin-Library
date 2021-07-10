@@ -65,6 +65,4 @@ private:
     QDir *_qdir;
 };
 
-Q_DECLARE_METATYPE(jseplugins_qdir*);
-
 #endif

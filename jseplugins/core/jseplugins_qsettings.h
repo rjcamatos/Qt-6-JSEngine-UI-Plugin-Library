@@ -21,6 +21,4 @@ public:
     Q_INVOKABLE void sync();
 };
 
-Q_DECLARE_METATYPE(jseplugins_qsettings*);
-
 #endif // JSEPLUGINS_QSETTINGS_H

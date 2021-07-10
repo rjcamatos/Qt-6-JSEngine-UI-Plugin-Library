@@ -18,8 +18,6 @@ public:
     ~jseplugins_qpoint();
     Q_INVOKABLE QPoint getReference();
 
-signals:
-
 };
 
 #endif // JSEPLUGINS_QPOINT_H
