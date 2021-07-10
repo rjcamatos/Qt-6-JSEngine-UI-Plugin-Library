@@ -8,7 +8,9 @@
 #include "core/jseplugins_qevent.h"
 #include "core/jseplugins_qtimerevent.h"
 #include "core/jseplugins_qsize.h"
+#include "core/jseplugins_qpoint.h"
 #include "core/jseplugins_qsettings.h"
+
 
 //IO
 #include "io/jseplugins_qdir.h"
@@ -150,6 +152,9 @@ static inline void registerJSEngineMetaTypes(QJSEngine *engine) {
 
     sv = engine->newQMetaObject(&jseplugins_qsize::staticMetaObject);
     engine->globalObject().setProperty("QSize",sv);
+
+    sv = engine->newQMetaObject(&jseplugins_qpoint::staticMetaObject);
+    engine->globalObject().setProperty("QPoint",sv);
 
 //io
     sv = engine->newQMetaObject(&jseplugins_qdir::staticMetaObject);

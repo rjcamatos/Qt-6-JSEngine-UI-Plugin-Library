@@ -1,8 +1,8 @@
 #include "jseplugins_qicon.h"
 #include <QDebug>
-jseplugins_qicon::jseplugins_qicon()
-{
-}
+jseplugins_qicon::jseplugins_qicon() {}
+
+jseplugins_qicon::jseplugins_qicon(const QString &fileName) : QIcon(fileName) { }
 
 jseplugins_qicon::~jseplugins_qicon() {};
 
