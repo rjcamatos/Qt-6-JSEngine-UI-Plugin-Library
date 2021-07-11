@@ -7,6 +7,8 @@
 class jseplugins_qdial : public QDial
 {
     Q_OBJECT
+    Q_PROPERTY(QSize minimumSizeHint READ minimumSizeHint);
+    Q_PROPERTY(QSize sizeHint READ sizeHint);
 public:
     Q_INVOKABLE jseplugins_qdial(QWidget *parent = nullptr);
     ~jseplugins_qdial();
