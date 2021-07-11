@@ -111,7 +111,7 @@ static inline void registerQMetaTypes() {
 static inline void registerMetaTypesConverter() {
 
     //qRegisterMetaType<jseplugins_qicon*>("QIcon");
-
+    /*
     QMetaType::registerConverter<jseplugins_qicon*,QIcon>(
         [] (jseplugins_qicon* qObjPtr) {
             qDebug() << "CONVERTER";
@@ -119,7 +119,19 @@ static inline void registerMetaTypesConverter() {
             QIcon *dataPtr = (QIcon*)qObjPtr;
             return (dataPtr == nullptr) ? QIcon() : QIcon( *dataPtr );
         }
-    );
+    );*/
+    /*
+    QMetaType::registerConverter<QJSValue,jseplugins_qpushbutton*>(
+        [] (QJSValue value) {
+            qDebug() << "CONVERTER";
+            qDebug() << "CATCH TYPE CONVERTER";
+            if( static_cast<jseplugins_qpushbutton*>(value.toQObject())) {
+                qDebug() << "OBJECT CONVERTED";
+                return static_cast<jseplugins_qpushbutton*>(value.toQObject());
+            }
+            return static_cast<jseplugins_qpushbutton*>(nullptr);
+        }
+    );*/
 }
 
 static inline void registerJSEngineMetaTypes(QJSEngine *engine) {

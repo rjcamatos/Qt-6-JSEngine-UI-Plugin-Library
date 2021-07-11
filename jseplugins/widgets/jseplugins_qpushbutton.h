@@ -13,6 +13,7 @@ class jseplugins_qpushbutton: public QPushButton
 
 public:
     Q_INVOKABLE jseplugins_qpushbutton(QWidget *parent = nullptr);
+    Q_INVOKABLE jseplugins_qpushbutton(const QString &text, QWidget *parent = nullptr);
     ~jseplugins_qpushbutton();
 
 };

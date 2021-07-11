@@ -12,22 +12,23 @@
 class jseplugins_qdialogbuttonbox: public QDialogButtonBox
 {
     Q_OBJECT
-
+    Q_PROPERTY(QSize minimumSizeHint READ minimumSizeHint);
+    Q_PROPERTY(QSize sizeHint READ sizeHint);
 public:
     Q_INVOKABLE jseplugins_qdialogbuttonbox(QWidget *parent = nullptr);
     ~jseplugins_qdialogbuttonbox();
-    Q_INVOKABLE void setStandardButtons(QDialogButtonBox::StandardButtons buttons);
-    Q_INVOKABLE QDialogButtonBox::StandardButton standardButton(QAbstractButton *button);
-    Q_INVOKABLE void removeButton(QJSValue button);
-    Q_INVOKABLE jseplugins_qpushbutton* addButton(const QString &text, QDialogButtonBox::ButtonRole role);
-    Q_INVOKABLE jseplugins_qpushbutton* addButton(QDialogButtonBox::StandardButton button);
-    Q_INVOKABLE jseplugins_qpushbutton* button(QDialogButtonBox::StandardButton which);
-    Q_INVOKABLE QDialogButtonBox::ButtonRole buttonRole(jseplugins_qpushbutton *button);
+    Q_INVOKABLE void setStandardButtons(StandardButtons buttons);
+    Q_INVOKABLE StandardButton standardButton(jseplugins_qpushbutton *button);
+    Q_INVOKABLE void removeButton(jseplugins_qpushbutton *button);
+    Q_INVOKABLE jseplugins_qpushbutton* addButton(const QString &text, ButtonRole role);
+    Q_INVOKABLE jseplugins_qpushbutton* addButton(StandardButton button);
+    Q_INVOKABLE void addButton(jseplugins_qpushbutton *button, ButtonRole role);
+    Q_INVOKABLE jseplugins_qpushbutton* button(StandardButton which);
+    Q_INVOKABLE ButtonRole buttonRole(jseplugins_qpushbutton *button);
 
+    Q_ENUM(ButtonRole);
+    Q_ENUM(StandardButton);
 
-
-    Q_ENUM(QDialogButtonBox::StandardButton);
-    Q_ENUM(QDialogButtonBox::ButtonRole);
 };
 
 Q_DECLARE_METATYPE(jseplugins_qdialogbuttonbox*);
